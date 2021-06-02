@@ -1,5 +1,21 @@
-import Head from "next/head";
+import { ExperienceBar } from "../components/ExperienceBar";
+import { Profile } from "../components/Profile";
+import { CompletedChallenges } from "../components/CompletedChallenges";
+
+import styles from "../styles/pages/Home.module.css";
 
 export default function Home() {
-  return <h1>teste</h1>;
+  return (
+    <div className={styles.container}>
+      <ExperienceBar />
+
+      <section>
+        <div className={styles.leftContainer}>
+          <Profile />
+          <CompletedChallenges />
+        </div>
+        <div className={styles.rightContainer}></div>
+      </section>
+    </div>
+  );
 }
