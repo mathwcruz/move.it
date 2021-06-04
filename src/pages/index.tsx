@@ -16,12 +16,12 @@ export default function Home() {
       </Head>
       <ExperienceBar />
       <section>
-        <div className={styles.leftContainer}>
+        <div>
           <Profile />
           <CompletedChallenges />
           <Countdown />
         </div>
-        <div className={styles.rightContainer}>
+        <div>
           <ChallengeBox />
         </div>
       </section>
