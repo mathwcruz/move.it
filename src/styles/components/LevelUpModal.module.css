@@ -21,6 +21,11 @@
   position: relative;
 }
 
+.levelUpModalContainer > img {
+  width: 8rem;
+  margin-bottom: 0.5rem;
+}
+
 .levelUpModalContainer header {
   font-size: 8.75rem;
   font-weight: 600;

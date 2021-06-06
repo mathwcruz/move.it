@@ -8,6 +8,7 @@ export function LevelUpModal() {
   return (
     <div className={styles.levelUpModalOverlay}>
       <div className={styles.levelUpModalContainer}>
+        <img src="logo-full.svg" alt="move.it" />
         <header>{level}</header>
 
         <strong>Parabéns</strong>
