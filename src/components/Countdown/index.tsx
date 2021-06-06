@@ -1,4 +1,5 @@
 import { useCountdown } from "../../contexts/CountdownContext";
+import { FaCheckCircle, FaArrowRight } from "react-icons/fa";
 
 import styles from "../../styles/components/Countdown.module.css";
 
@@ -32,6 +33,7 @@ export function Countdown() {
       {hasFinished ? (
         <button disabled className={styles.countdownButton}>
           Ciclo encerrado
+          <FaCheckCircle color="#4CD62B" size={16} />
         </button>
       ) : (
         <>
@@ -42,6 +44,7 @@ export function Countdown() {
               onClick={startCountdown}
             >
               Iniciar um ciclo
+              <FaArrowRight color="#FFF" size={16} />
             </button>
           ) : (
             <button
@@ -50,6 +53,7 @@ export function Countdown() {
               onClick={resetCountdown}
             >
               Abandonar ciclo
+              <img src="icons/close.svg" />
             </button>
           )}
         </>
