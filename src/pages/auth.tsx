@@ -1,3 +1,5 @@
+import { GetServerSideProps } from "next";
+import { signIn, getSession } from "next-auth/client";
 import { FaGithub, FaArrowRight } from "react-icons/fa";
 
 import styles from "../styles/pages/Auth.module.css";
@@ -15,7 +17,7 @@ export default function Auth() {
             <p>Faça login com seu Github para começar</p>
           </div>
         </section>
-        <button type="button">
+        <button type="button" onClick={() => signIn("github")}>
           Entrar com Github
           <FaArrowRight color="#4953b8" size={20} />
         </button>
@@ -23,3 +25,21 @@ export default function Auth() {
     </div>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const session = await getSession(ctx);
+  const { res } = ctx;
+
+  if (session) {
+    res.writeHead(301, {
+      location: "http://localhost:3000/",
+    });
+    res.end();
+  }
+
+  return {
+    props: {
+      sessions: session,
+    },
+  };
+};
