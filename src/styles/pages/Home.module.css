@@ -1,3 +1,7 @@
+.sideBarNavContainer {
+  display: flex;
+}
+
 .container {
   height: 100vh;
   max-width: 992px;

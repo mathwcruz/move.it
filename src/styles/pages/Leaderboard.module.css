@@ -1,0 +1,11 @@
+.sideBarNavContainer {
+  display: flex;
+}
+
+.leaderboardContainer {
+  height: 100vh;
+  max-width: 980px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

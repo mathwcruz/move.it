@@ -32,7 +32,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   if (session) {
     res.writeHead(301, {
-      location: "http://localhost:3000/",
+      location: `${process.env.NEXTAUTH_URL}/`,
     });
     res.end();
   }

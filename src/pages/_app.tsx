@@ -5,7 +5,7 @@ import "../styles/global.css";
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <NextAuthProvider session={pageProps?.session}>
+    <NextAuthProvider session={pageProps.session}>
       <Component {...pageProps} />
     </NextAuthProvider>
   );

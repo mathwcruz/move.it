@@ -11,6 +11,7 @@ import { ExperienceBar } from "../components/ExperienceBar";
 import { Profile } from "../components/Profile";
 
 import styles from "../styles/pages/Home.module.css";
+import { SideBarNav } from "../components/SideBarNav";
 
 interface HomeProps {
   level: number;
@@ -29,23 +30,26 @@ export default function Home({
       currentExperience={currentExperience}
       challengesCompleted={challengesCompleted}
     >
-      <div className={styles.container}>
-        <Head>
-          <title>Início | move.it</title>
-        </Head>
-        <ExperienceBar />
-        <CountdownProvider>
-          <section>
-            <div>
-              <Profile />
-              <CompletedChallenges />
-              <Countdown />
-            </div>
-            <div>
-              <ChallengeBox />
-            </div>
-          </section>
-        </CountdownProvider>
+      <div className={styles.sideBarNavContainer}>
+        <SideBarNav />
+        <div className={styles.container}>
+          <Head>
+            <title>Início | move.it</title>
+          </Head>
+          <ExperienceBar />
+          <CountdownProvider>
+            <section>
+              <div>
+                <Profile />
+                <CompletedChallenges />
+                <Countdown />
+              </div>
+              <div>
+                <ChallengeBox />
+              </div>
+            </section>
+          </CountdownProvider>
+        </div>
       </div>
     </ChallengesProvider>
   );
