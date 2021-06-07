@@ -1,5 +1,6 @@
-import Head from "next/head";
 import { GetServerSideProps } from "next";
+import Head from "next/head";
+import { getSession } from "next-auth/client";
 
 import { ChallengesProvider } from "../contexts/ChallengesContext";
 import { CountdownProvider } from "../contexts/CountdownContext";
@@ -9,9 +10,9 @@ import { CompletedChallenges } from "../components/CompletedChallenges";
 import { Countdown } from "../components/Countdown";
 import { ExperienceBar } from "../components/ExperienceBar";
 import { Profile } from "../components/Profile";
+import { SideBarNav } from "../components/SideBarNav";
 
 import styles from "../styles/pages/Home.module.css";
-import { SideBarNav } from "../components/SideBarNav";
 
 interface HomeProps {
   level: number;
@@ -34,7 +35,7 @@ export default function Home({
         <SideBarNav />
         <div className={styles.container}>
           <Head>
-            <title>Início | move.it</title>
+            <title>Desafios | move.it</title>
           </Head>
           <ExperienceBar />
           <CountdownProvider>
@@ -57,6 +58,16 @@ export default function Home({
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const { level, currentExperience, challengesCompleted } = req?.cookies;
+  const session = await getSession({ req });
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/auth",
+        permanent: false,
+      },
+    };
+  }
 
   return {
     props: {
