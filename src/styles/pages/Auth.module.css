@@ -29,7 +29,7 @@
 }
 
 .informationsContainer section h2 {
-  font: 600 2.25rem "Inter";
+  font: 600 2.25rem "Inter", sans-serif;
   color: var(--white);
   line-height: 1.625rem;
   margin-bottom: 1.8rem;
@@ -48,7 +48,8 @@
 
 .informationsContainer section div p {
   margin-left: 1.5rem;
-  font: 500 1.25rem;
+  font-size: 1.25rem;
+  font-weight: 500;
   color: var(--text-highlight);
 }
 

@@ -4,8 +4,69 @@
 
 .leaderboardContainer {
   height: 100vh;
+  width: 100%;
   max-width: 980px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.leaderboardContainer h2 {
+  margin: 3rem 0 2rem 0;
+  font-size: 2.25rem;
+  font-weight: 600;
+  line-height: 2.875rem;
+  color: var(--title);
+}
+
+.leaderboardContainer table {
+  width: 100%;
+  border-spacing: 0 0.6rem;
+  margin: 0 auto;
+}
+
+.leaderboardContainer table th {
+  color: var(--text);
+  font-weight: 700;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}
+
+.leaderboardContainer table td {
+  padding: 1.25rem 0;
+  border: 0;
+  color: var(--title);
+  font-size: 1rem;
+  font-weight: 600;
+  background: var(--white);
+  text-align: center;
+}
+
+.leaderboardContainer table td span {
+  color: var(--blue);
+}
+
+.leaderboardContainer table tr td:first-child {
+  font-size: 1.25rem;
+  color: var(--blue);
+  border-right: 2px solid var(--blue);
+}
+
+.leaderboardContainer table tr td:nth-of-type(3) {
+  color: var(--text);
+}
+
+.leaderboardContainer table tr td:nth-of-type(4) {
+  color: var(--blue);
+}
+
+.leaderboardContainer table tr td:nth-of-type(4) a svg {
+  margin-left: 0.4rem;
+  transition: all 0.2s;
+}
+
+.leaderboardContainer table tr td:nth-of-type(4) a svg:hover {
+  transform: translateX(2px);
+  filter: opacity(0.7);
 }
