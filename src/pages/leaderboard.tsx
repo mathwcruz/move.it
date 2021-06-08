@@ -5,6 +5,8 @@ import { FaArrowRight } from "react-icons/fa";
 
 import { SideBarNav } from "../components/SideBarNav";
 
+import { api } from "../services/api";
+
 import styles from "../styles/pages/Leaderboard.module.css";
 import Link from "next/link";
 
@@ -15,10 +17,12 @@ interface User {
 }
 
 interface LeaderboardProps {
-  user: User;
+  users: User[];
 }
 
-export default function Leaderboard({}: LeaderboardProps) {
+export default function Leaderboard({ users }: LeaderboardProps) {
+  console.log({ users });
+
   return (
     <>
       <Head>
@@ -38,36 +42,23 @@ export default function Leaderboard({}: LeaderboardProps) {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>Matheus da Cruz</td>
-                <td>
-                  <span>130</span> completados
-                </td>
-                <td>
-                  <Link href="/">
-                    <a>
-                      Ver perfil
-                      <FaArrowRight size={14} color="#4953b8" />
-                    </a>
-                  </Link>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jonatan Aguiar</td>
-                <td>
-                  <span>114</span> completados
-                </td>
-                <td>
-                  <Link href="/">
-                    <a>
-                      Ver perfil
-                      <FaArrowRight size={14} color="#4953b8" />
-                    </a>
-                  </Link>
-                </td>
-              </tr>
+              {users.map((user, index) => (
+                <tr key={user?.id}>
+                  <td>{index + 1}</td>
+                  <td>{user?.name}</td>
+                  <td>
+                    <span>{user?.challenges}</span> completados
+                  </td>
+                  <td>
+                    <Link href={`https://github.com/${user?.id}`}>
+                      <a>
+                        Ver perfil
+                        <FaArrowRight size={14} color="#4953b8" />
+                      </a>
+                    </Link>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
@@ -78,6 +69,20 @@ export default function Leaderboard({}: LeaderboardProps) {
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const session = await getSession({ req });
+  const { data } = await api.get("/users", {
+    params: {
+      _sort: "challenges", //ordenando pelo valor do "challenges"
+      _order: "desc", // em ordem decrescente
+    },
+  });
+
+  const users = data.map((user) => {
+    return {
+      id: user?.id,
+      name: user?.name,
+      challenges: user?.challenges,
+    };
+  });
 
   if (!session) {
     return {
@@ -89,6 +94,8 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   }
 
   return {
-    props: {},
+    props: {
+      users,
+    },
   };
 };

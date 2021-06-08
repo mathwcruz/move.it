@@ -5,9 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "server": "json-server server.json -w -d 700 -p 3333"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "js-cookie": "^2.2.1",
     "next": "10.2.3",
     "next-auth": "^3.25.0",
