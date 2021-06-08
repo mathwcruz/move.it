@@ -18,13 +18,13 @@ export default function Auth() {
           <section>
             <h2>Bem-vindo</h2>
             <div>
-              <FaGithub color="#dcdde0" size={40} />
+              <FaGithub color="#dcdde0" size={48} />
               <p>Faça login com seu Github para começar</p>
             </div>
           </section>
           <button type="button" onClick={() => signIn("github")}>
             Entrar com Github
-            <FaArrowRight color="#4953b8" size={20} />
+            <FaArrowRight color="#fff" size={16} />
           </button>
         </div>
       </div>
