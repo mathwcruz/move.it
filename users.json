@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "id": "mathwcruz",
+      "name": "Matheus da Cruz",
+      "image_url": "https://github.com/mathwcruz.png",
+      "level": 33,
+      "challenges": 116,
+      "experience": 133650,
+      "last_challenge_completed_date": "2021-06-04 12:47:42",
+      "contact_link": "https://www.linkedin.com/in/matheus-cruz-frontend/"
+    },
+    {
+      "id": "diego3g",
+      "name": "Diego Fernandes",
+      "image_url": "https://github.com/diego3g.png",
+      "level": 31,
+      "challenges": 104,
+      "experience": 121457,
+      "last_challenge_completed_date": "2021-06-07 08:24:16",
+      "contact_link": "https://www.linkedin.com/in/diego-schell-fernandes/"
+    },
+    {
+      "id": "maykbrito",
+      "name": "Mayk Brito",
+      "image_url": "https://github.com/maykbrito.png",
+      "level": 42,
+      "challenges": 156,
+      "experience": 171283,
+      "last_challenge_completed_date": "2021-06-05 14:03:21",
+      "contact_link": "https://www.linkedin.com/in/maykbrito/"
+    },
+    {
+      "id": "josepholiveira",
+      "name": "Joseph Oliveira",
+      "image_url": "https://github.com/josepholiveira.png",
+      "level": 28,
+      "challenges": 93,
+      "experience": 101265,
+      "last_challenge_completed_date": "2021-06-08 13:02:07",
+      "contact_link": "https://www.linkedin.com/in/josepholiveiraa/"
+    },
+    {
+      "id": "filipedeschamps",
+      "name": "Filipe Deschamps",
+      "image_url": "https://github.com/filipedeschamps.png",
+      "level": 30,
+      "challenges": 98,
+      "experience": 119693,
+      "last_challenge_completed_date": "2021-06-02 06:12:09",
+      "contact_link": "https://www.linkedin.com/in/filipedeschamps/"
+    }
+  ]
+}
