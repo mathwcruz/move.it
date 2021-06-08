@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { signOut } from "next-auth/client";
 import { FaHome, FaAward, FaPowerOff } from "react-icons/fa";
 
@@ -8,7 +9,11 @@ import styles from "../../styles/components/SideBarNav.module.css";
 export function SideBarNav() {
   return (
     <aside className={styles.sideBarNav}>
-      <img src="icons/logo.svg" alt="move.it" />
+      <Link href="/">
+        <a>
+          <img src="icons/logo.svg" alt="move.it" />
+        </a>
+      </Link>
       <section>
         <ActiveLink activeClassName={styles.active} href="/">
           <a>
