@@ -8,7 +8,17 @@ import { SideBarNav } from "../components/SideBarNav";
 import styles from "../styles/pages/Leaderboard.module.css";
 import Link from "next/link";
 
-export default function Leaderboard() {
+interface User {
+  id: string;
+  name: string;
+  challenges: number;
+}
+
+interface LeaderboardProps {
+  user: User;
+}
+
+export default function Leaderboard({}: LeaderboardProps) {
   return (
     <>
       <Head>
