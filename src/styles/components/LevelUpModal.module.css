@@ -51,4 +51,9 @@
   top: 0.5rem;
   background: transparent;
   border: 0;
+  transition: opacity 0.2s;
+}
+
+.levelUpModalContainer button img:hover {
+  opacity: 0.8;
 }

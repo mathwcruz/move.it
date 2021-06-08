@@ -33,3 +33,9 @@
 .sideBarNav button svg:hover {
   filter: brightness(0.85);
 }
+
+@media (max-width: 720px) {
+  .sideBarNav {
+    height: calc(100vh + 10rem);
+  }
+}

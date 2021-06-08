@@ -18,3 +18,9 @@
   gap: 6.25rem;
   align-content: center;
 }
+
+@media (max-width: 850px) {
+  .container section {
+    grid-template-columns: 1fr;
+  }
+}

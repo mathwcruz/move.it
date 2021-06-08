@@ -99,3 +99,9 @@
 .challengeActive footer button.challengeSucceededButton {
   background: var(--green);
 }
+
+@media (max-width: 850px) {
+  .challengeBoxContainer {
+    margin-bottom: 3rem;
+  }
+}
