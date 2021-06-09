@@ -1,21 +1,55 @@
+import Head from "next/head";
 import { GetStaticPaths, GetStaticProps } from "next";
 import axios from "axios";
 
 import { format, parseISO } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
+import { SideBarNav } from "../../components/SideBarNav";
+
 import { api } from "../../services/api";
 
 import styles from "../../styles/pages/User.module.css";
 
-export default function User({ userData, userRepositories }) {
-  console.log({ userData });
+interface UserData {
+  avatarUrl: string;
+  name: string;
+  bio: string;
+  company: string;
+  followers: number;
+  level: number;
+  completedChallenges: number;
+  experience: number;
+  lastChallengeCompletedDate: string;
+  contactLink: string;
+}
+
+interface UserRepositoriesData {}
+
+interface UserProps {
+  userData: UserData;
+  userRepositories: UserRepositoriesData;
+}
+
+export default function User({
+  userData: user,
+  userRepositories: repositories,
+}: UserProps) {
+  console.log({ repositories, user });
 
   return (
-    <div className={styles.userContainer}>
-      <h1>User: </h1>
-      <p>{userData?.name}</p>
-    </div>
+    <>
+      <Head>
+        <title>{user?.name} | move.it</title>
+      </Head>
+      <div className={styles.sideBarNavContainer}>
+        <SideBarNav />
+        <div className={styles.userContainer}>
+          <h1>User: </h1>
+          <p>{user?.name}</p>
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -34,14 +68,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     `https://api.github.com/users/${slug}`
   );
   const { data: userRepos } = await axios.get(
-    `https://api.github.com/users/${slug}/repos`,
-    {
-      params: {
-        _limit: 3,
-        // _sort: "updated_at",
-        // _order: "desc",
-      },
-    }
+    `https://api.github.com/users/${slug}/repos`
   );
 
   const userFormatted = {
@@ -55,7 +82,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     experience: userDataChallenge?.experience,
     lastChallengeCompletedDate: format(
       parseISO(userDataChallenge?.last_challenge_completed_date),
-      "dd MMM yy",
+      "dd MMM yyyy",
       {
         locale: ptBR,
       }
@@ -63,16 +90,21 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     contactLink: userDataChallenge?.contact_link,
   };
 
-  //criar interface para as props retornadas pelo next
-  // retornar os dados dos repos formatados
-
-  const userRepositoriesFromatted = {};
+  const someUserRepositories = userRepos.slice(0, 3);
+  const userRepositoriesFromatted = someUserRepositories.map((repo) => {
+    return {
+      name: repo?.name,
+      description: repo?.description,
+      mainLanguage: repo?.language,
+      totalStars: repo?.stargazers_count,
+    };
+  });
 
   return {
     props: {
       userData: userFormatted,
       userRepositories: userRepositoriesFromatted,
     },
-    revalidate: 60 * 30, // => 30 minutos
+    revalidate: 60 * 20, // => 20 minutos
   };
 };

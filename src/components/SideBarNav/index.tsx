@@ -11,7 +11,7 @@ export function SideBarNav() {
     <aside className={styles.sideBarNav}>
       <Link href="/">
         <a>
-          <img src="icons/logo.svg" alt="move.it" />
+          <img src="/icons/logo.svg" alt="move.it" />
         </a>
       </Link>
       <section>

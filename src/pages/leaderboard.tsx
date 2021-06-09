@@ -13,7 +13,7 @@ import Link from "next/link";
 interface User {
   id: string;
   name: string;
-  challenges: number;
+  completedChallenges: number;
 }
 
 interface LeaderboardProps {
@@ -47,7 +47,7 @@ export default function Leaderboard({ users }: LeaderboardProps) {
                   <td>{index + 1}</td>
                   <td>{user?.name}</td>
                   <td>
-                    <span>{user?.challenges}</span> completados
+                    <span>{user?.completedChallenges}</span> completados
                   </td>
                   <td>
                     <Link href={`/users/${user?.id}`}>
@@ -71,8 +71,8 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const session = await getSession({ req });
   const { data } = await api.get("/users", {
     params: {
-      _sort: "challenges", //ordenando pelo valor do "challenges"
-      _order: "desc", // em ordem decrescente
+      _sort: "completed_challenges",
+      _order: "desc",
     },
   });
 
@@ -80,7 +80,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     return {
       id: user?.id,
       name: user?.name,
-      challenges: user?.challenges,
+      completedChallenges: user?.completed_challenges,
     };
   });
 
