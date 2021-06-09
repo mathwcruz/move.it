@@ -1,5 +1,6 @@
 import Head from "next/head";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { getSession } from "next-auth/client";
+import { GetServerSideProps, GetStaticPaths } from "next";
 import axios from "axios";
 
 import { format, parseISO } from "date-fns";
@@ -24,43 +25,66 @@ interface UserData {
   contactLink: string;
 }
 
-interface UserRepositoriesData {}
+interface UserRepositoryData {
+  name: string;
+  description: string;
+  mainLanguage: string;
+  totalStars: number;
+}
 
 interface UserProps {
   userData: UserData;
-  userRepositories: UserRepositoriesData;
+  userRepositories: UserRepositoryData[];
 }
 
 export default function User({
   userData: user,
   userRepositories: repositories,
 }: UserProps) {
-  console.log({ repositories, user });
-
   return (
     <>
       <Head>
-        <title>{user?.name} | move.it</title>
+        <title>{user?.name || "Usuário"} | move.it</title>
       </Head>
       <div className={styles.sideBarNavContainer}>
         <SideBarNav />
         <div className={styles.userContainer}>
           <h1>User: </h1>
-          <p>{user?.name}</p>
+          <p>{user?.bio}</p>
         </div>
       </div>
     </>
   );
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [],
-    fallback: "blocking",
-  };
-};
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   const { data } = await api.get("/users", {
+//     params: {
+//       _limit: 3,
+//       _sort: "completed_challenges",
+//       _order: "desc",
+//     },
+//   });
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+//   const paths = data.map((user) => {
+//     return {
+//       params: {
+//         slug: user?.id,
+//       },
+//     };
+//   });
+
+//   return {
+//     paths,
+//     fallback: "blocking",
+//   };
+// };
+
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+  params,
+}) => {
+  const session = await getSession({ req });
   const { slug } = params;
 
   const { data: userDataChallenge } = await api.get(`/users/${slug}`);
@@ -100,11 +124,19 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   });
 
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/auth",
+        permanent: false,
+      },
+    };
+  }
+
   return {
     props: {
       userData: userFormatted,
       userRepositories: userRepositoriesFromatted,
     },
-    revalidate: 60 * 20, // => 20 minutos
   };
 };
