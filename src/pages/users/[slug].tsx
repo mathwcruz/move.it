@@ -1,8 +1,10 @@
 import Head from "next/head";
-import { getSession } from "next-auth/client";
-import { GetServerSideProps, GetStaticPaths } from "next";
-import axios from "axios";
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/client";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { useEffect } from "react";
 
+import axios from "axios";
 import { format, parseISO } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
@@ -41,6 +43,17 @@ export default function User({
   userData: user,
   userRepositories: repositories,
 }: UserProps) {
+  const [session, loading] = useSession();
+  const router = useRouter();
+
+  console.log({ user, repositories });
+
+  useEffect(() => {
+    if (!loading && !session) {
+      router.push("/auth");
+    }
+  }, [loading, session]);
+
   return (
     <>
       <Head>
@@ -57,35 +70,33 @@ export default function User({
   );
 }
 
-// export const getStaticPaths: GetStaticPaths = async () => {
-//   const { data } = await api.get("/users", {
-//     params: {
-//       _limit: 3,
-//       _sort: "completed_challenges",
-//       _order: "desc",
-//     },
-//   });
+export const getStaticPaths: GetStaticPaths = async () => {
+  const { data } = await api.get("/users", {
+    // pegando os 3 usuários com mais desafios completados
+    params: {
+      _limit: 3,
+      _sort: "completed_challenges",
+      _order: "desc",
+    },
+  });
 
-//   const paths = data.map((user) => {
-//     return {
-//       params: {
-//         slug: user?.id,
-//       },
-//     };
-//   });
+  const paths = data?.map((user) => {
+    // esses id's serão gerados de forma estática na hora do build do next
+    return {
+      params: {
+        slug: user?.id,
+      },
+    };
+  });
 
-//   return {
-//     paths,
-//     fallback: "blocking",
-//   };
-// };
+  return {
+    paths,
+    fallback: "blocking", // os id's que nao estiverem no "paths" irão ser gerados de maneira estática apenas quando forem acessados
+  };
+};
 
-export const getServerSideProps: GetServerSideProps = async ({
-  req,
-  params,
-}) => {
-  const session = await getSession({ req });
-  const { slug } = params;
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { slug } = params; // pegando o id do user para fazer as requisições necesárias e mostrar os dados deste usuário
 
   const { data: userDataChallenge } = await api.get(`/users/${slug}`);
   const { data: userDataGithub } = await axios.get(
@@ -96,6 +107,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   );
 
   const userFormatted = {
+    // formatando os dados do user para o front
     avatarUrl: userDataGithub?.avatar_url,
     name: userDataGithub?.name,
     bio: userDataGithub?.bio,
@@ -114,8 +126,9 @@ export const getServerSideProps: GetServerSideProps = async ({
     contactLink: userDataChallenge?.contact_link,
   };
 
-  const someUserRepositories = userRepos.slice(0, 3);
-  const userRepositoriesFromatted = someUserRepositories.map((repo) => {
+  const someUserRepositories = userRepos.slice(0, 3); // pegando apenas 3 repos do user
+  const userRepositoriesFromatted = someUserRepositories?.map((repo) => {
+    // formatando os repos do user para o front
     return {
       name: repo?.name,
       description: repo?.description,
@@ -124,19 +137,11 @@ export const getServerSideProps: GetServerSideProps = async ({
     };
   });
 
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/auth",
-        permanent: false,
-      },
-    };
-  }
-
   return {
     props: {
       userData: userFormatted,
       userRepositories: userRepositoriesFromatted,
     },
+    revalidate: 60 * 20, // => 20 minutos
   };
 };

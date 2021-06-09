@@ -21,8 +21,6 @@ interface LeaderboardProps {
 }
 
 export default function Leaderboard({ users }: LeaderboardProps) {
-  console.log({ users });
-
   return (
     <>
       <Head>
@@ -42,7 +40,7 @@ export default function Leaderboard({ users }: LeaderboardProps) {
               </tr>
             </thead>
             <tbody>
-              {users.map((user, index) => (
+              {users?.map((user, index) => (
                 <tr key={user?.id}>
                   <td>{index + 1}</td>
                   <td>{user?.name}</td>
@@ -76,7 +74,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     },
   });
 
-  const users = data.map((user) => {
+  const users = data?.map((user) => {
     return {
       id: user?.id,
       name: user?.name,
