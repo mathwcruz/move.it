@@ -50,7 +50,7 @@ export default function Leaderboard({ users }: LeaderboardProps) {
                     <span>{user?.challenges}</span> completados
                   </td>
                   <td>
-                    <Link href={`https://github.com/${user?.id}`}>
+                    <Link href={`/users/${user?.id}`}>
                       <a>
                         Ver perfil
                         <FaArrowRight size={14} color="#4953b8" />
