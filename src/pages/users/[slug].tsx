@@ -18,7 +18,6 @@ interface UserData {
   avatarUrl: string;
   name: string;
   bio: string;
-  company: string;
   followers: number;
   level: number;
   completedChallenges: number;
@@ -111,7 +110,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     avatarUrl: userDataGithub?.avatar_url,
     name: userDataGithub?.name,
     bio: userDataGithub?.bio,
-    company: userDataGithub?.company,
     followers: userDataGithub?.followers,
     level: userDataChallenge?.level,
     completedChallenges: userDataChallenge?.completed_challenges,

@@ -33,9 +33,10 @@ export default function Auth() {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-  const session = await getSession({ req });
+  const session = await getSession({ req }); // pegando os dados da sessão do user
 
   if (session) {
+    // caso o user já esteja autenticado, ele será redirecionado para a home
     return {
       redirect: {
         destination: "/",

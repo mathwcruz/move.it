@@ -1,4 +1,5 @@
 import { GetServerSideProps } from "next";
+import Link from "next/link";
 import Head from "next/head";
 import { getSession } from "next-auth/client";
 import { FaArrowRight } from "react-icons/fa";
@@ -8,7 +9,6 @@ import { SideBarNav } from "../components/SideBarNav";
 import { api } from "../services/api";
 
 import styles from "../styles/pages/Leaderboard.module.css";
-import Link from "next/link";
 
 interface User {
   id: string;
@@ -66,8 +66,9 @@ export default function Leaderboard({ users }: LeaderboardProps) {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-  const session = await getSession({ req });
+  const session = await getSession({ req }); // pegando os dados da sessão do user
   const { data } = await api.get("/users", {
+    // pegando os usuários e ordenando pelo total de desafios completados
     params: {
       _sort: "completed_challenges",
       _order: "desc",
@@ -75,6 +76,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   });
 
   const users = data?.map((user) => {
+    // formatando os dados do user para o front
     return {
       id: user?.id,
       name: user?.name,
@@ -83,6 +85,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   });
 
   if (!session) {
+    // caso o user nao esteja autenticado, redireciona ele para a tela de autenticação
     return {
       redirect: {
         destination: "/auth",

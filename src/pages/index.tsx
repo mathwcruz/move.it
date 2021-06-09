@@ -57,10 +57,11 @@ export default function Home({
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-  const { level, currentExperience, challengesCompleted } = req?.cookies;
-  const session = await getSession({ req });
+  const { level, currentExperience, challengesCompleted } = req?.cookies; // puxando os cookies salvos no navegador
+  const session = await getSession({ req }); // pegando os dados da sessão do user
 
   if (!session) {
+    // caso o user nao esteja autenticado, redireciona ele para a tela de autenticação
     return {
       redirect: {
         destination: "/auth",
