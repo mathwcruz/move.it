@@ -1,0 +1,76 @@
+.userMoveitInformations {
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.06);
+}
+
+.userMoveitInformations section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.userMoveitInformations section img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+}
+
+.userMoveitInformations section div {
+  flex: 1;
+  padding: 0.5rem;
+}
+
+.userMoveitInformations section div h2 {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 2.6rem;
+  color: var(--title);
+}
+
+.userMoveitInformations section div > p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: -50px;
+}
+
+.userMoveitInformations section div > p strong {
+  font-size: 1.2rem;
+  color: var(--blue-dark);
+}
+
+.userMoveitInformations section div > p img {
+  width: 1.5rem;
+}
+
+.userMoveitInformations section div h3 {
+  margin: 0.5rem 0;
+  text-align: center;
+  color: var(--blue);
+  font-size: 0.9rem;
+}
+
+.userMoveitInformations section div h4 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.userMoveitInformations section div h4 strong {
+  color: var(--blue-dark);
+}
+
+.userMoveitInformations section div h3 small {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+}
