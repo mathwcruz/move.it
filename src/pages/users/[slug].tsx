@@ -1,8 +1,10 @@
 import Head from "next/head";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/client";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useEffect } from "react";
+import { FaArrowLeft, FaLinkedin } from "react-icons/fa";
 
 import axios from "axios";
 import { format, parseISO } from "date-fns";
@@ -45,8 +47,6 @@ export default function User({
   const [session, loading] = useSession();
   const router = useRouter();
 
-  console.log({ user, repositories });
-
   useEffect(() => {
     if (!loading && !session) {
       router.push("/auth");
@@ -60,10 +60,73 @@ export default function User({
       </Head>
       <div className={styles.sideBarNavContainer}>
         <SideBarNav />
-        <div className={styles.userContainer}>
-          <h1>User: </h1>
-          <p>{user?.bio}</p>
-        </div>
+        <Link href="/leaderboard">
+          <a className={styles.backButton}>
+            <FaArrowLeft size={20} color="#4953b8" />
+          </a>
+        </Link>
+        <main className={styles.userContainer}>
+          <section className={styles.userInformations}>
+            <div className={styles.userMoveitInformations}>
+              <section>
+                <img src={user?.avatarUrl} alt={user?.name} />
+                <div>
+                  <h2>{user?.name}</h2>
+                  <p>
+                    <img src="/icons/level.svg" alt="Level" />
+                    Level <strong>{user?.level}</strong>
+                  </p>
+                  <p>
+                    <strong>{user?.completedChallenges}</strong> desafios
+                    completados
+                  </p>
+                  <h3>
+                    <small>{user?.experience}</small> xp
+                  </h3>
+                  <h4>
+                    Última atividade em{" "}
+                    <strong>{user?.lastChallengeCompletedDate}</strong>
+                  </h4>
+                </div>
+              </section>
+            </div>
+            <div className={styles.userGithubInformations}>
+              <section>
+                {user?.bio && (
+                  <article>
+                    <h3>Biografia de {user?.name}:</h3>
+                    <p>{user?.bio}</p>
+                  </article>
+                )}
+                <div>
+                  {user?.followers && (
+                    <strong>
+                      <small>{user?.followers}</small> seguidores
+                    </strong>
+                  )}
+                  <section>
+                    <FaLinkedin size={25} color="#4953b8" />
+                    <a
+                      href={user?.contactLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Contate
+                    </a>
+                    {user?.name}
+                  </section>
+                </div>
+              </section>
+            </div>
+          </section>
+          <section className={styles.userRepositories}>
+            <ul>
+              <li>Repo 1</li>
+              <li>Repo 2</li>
+              <li>Repo 3</li>
+            </ul>
+          </section>
+        </main>
       </div>
     </>
   );
