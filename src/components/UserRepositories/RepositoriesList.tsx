@@ -3,6 +3,7 @@ import { RepositoryItem } from "./RepositoryItem";
 import styles from "../../styles/components/RepositoriesList.module.css";
 
 interface Repository {
+  id: number;
   name: string;
   description: string;
   totalStars: number;
@@ -18,7 +19,7 @@ export function RepositoriesList({ repositories }: RepositoriesListProps) {
   return (
     <ul className={styles.repositoriesList}>
       {repositories?.map((repo) => (
-        <RepositoryItem key={repo?.repositoryUrl} repository={repo} />
+        <RepositoryItem key={repo?.id} repository={repo} />
       ))}
     </ul>
   );

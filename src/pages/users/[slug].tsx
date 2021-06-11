@@ -20,8 +20,8 @@ import { api } from "../../services/api";
 import styles from "../../styles/pages/User.module.css";
 
 interface UserData {
-  avatarUrl: string;
   name: string;
+  avatarUrl: string;
   bio: string;
   followers: number;
   level: number;
@@ -32,6 +32,7 @@ interface UserData {
 }
 
 interface UserRepositoryData {
+  id: number;
   name: string;
   description: string;
   mainLanguage: string;
@@ -50,8 +51,6 @@ export default function User({
 }: UserProps) {
   const [session, loading] = useSession();
   const router = useRouter();
-
-  console.log({ repositories });
 
   useEffect(() => {
     if (!loading && !session) {
@@ -123,8 +122,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const userFormatted = {
     // formatando os dados do user para o front
-    avatarUrl: userDataGithub?.avatar_url,
     name: userDataGithub?.name,
+    avatarUrl: userDataGithub?.avatar_url,
     bio: userDataGithub?.bio,
     followers: userDataGithub?.followers,
     level: userDataChallenge?.level,
@@ -144,6 +143,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const userRepositoriesFromatted = someUserRepositories?.map((repo) => {
     // formatando os repos do user para o front
     return {
+      id: repo?.id,
       name: repo?.name,
       description: repo?.description,
       mainLanguage: repo?.language,

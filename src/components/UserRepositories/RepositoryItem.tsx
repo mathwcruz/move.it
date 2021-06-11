@@ -4,6 +4,7 @@ import { FaArrowRight, FaStar } from "react-icons/fa";
 import styles from "../../styles/components/RepositoryItem.module.css";
 
 interface Repository {
+  id: number;
   name: string;
   description: string;
   totalStars: number;
