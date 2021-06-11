@@ -4,19 +4,20 @@ import { useRouter } from "next/router";
 import { useSession } from "next-auth/client";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useEffect } from "react";
-import { FaArrowLeft, FaArrowRight, FaStar } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 
 import axios from "axios";
 import { format, parseISO } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
+import { RepositoriesList } from "../../components/UserRepositories/RepositoriesList";
 import { SideBarNav } from "../../components/SideBarNav";
 import { UserGithubInformations } from "../../components/UserInformations/UserGithubInformations";
+import { UserMoveItInformations } from "../../components/UserInformations/UserMoveItInformations";
 
 import { api } from "../../services/api";
 
 import styles from "../../styles/pages/User.module.css";
-import { UserMoveItInformations } from "../../components/UserInformations/UserMoveItInformations";
 
 interface UserData {
   avatarUrl: string;
@@ -76,71 +77,7 @@ export default function User({
             <UserGithubInformations user={user} />
           </section>
           <section className={styles.userRepositories}>
-            <ul>
-              <li>
-                <h3>{repositories[0]?.name}</h3>
-                <p>{repositories[0]?.description}</p>
-                <section>
-                  <div>
-                    <strong>{repositories[0]?.totalStars}</strong>
-                    <FaStar color="#ffd666" size={18} />
-                  </div>
-                  {repositories[0]?.mainLanguage && (
-                    <div>
-                      <div />
-                      <small>{repositories[0]?.mainLanguage}</small>
-                    </div>
-                  )}
-                </section>
-                <Link href={repositories[0]?.repositoryUrl}>
-                  <a>
-                    <FaArrowRight color="#4953b8" size={20} />
-                  </a>
-                </Link>
-              </li>
-              <li>
-                <h3>{repositories[1]?.name}</h3>
-                <p>{repositories[1]?.description}</p>
-                <section>
-                  <div>
-                    <strong>{repositories[1]?.totalStars}</strong>
-                    <FaStar color="#ffd666" size={18} />
-                  </div>
-                  {repositories[1]?.mainLanguage && (
-                    <div>
-                      <div />
-                      <small>{repositories[1]?.mainLanguage}</small>
-                    </div>
-                  )}
-                </section>
-                <Link href={repositories[1]?.repositoryUrl}>
-                  <a>
-                    <FaArrowRight color="#4953b8" size={20} />
-                  </a>
-                </Link>
-              </li>
-              <li>
-                <h3>{repositories[2]?.name}</h3>
-                <p>{repositories[2]?.description}</p>
-                <section>
-                  <div>
-                    <strong>{repositories[2]?.totalStars}</strong>
-                    <FaStar color="#ffd666" size={18} />
-                  </div>
-                  {repositories[2]?.mainLanguage && (
-                    <div>
-                      <div />
-                      <small>{repositories[2]?.mainLanguage}</small>
-                    </div>
-                  )}
-                </section>
-                <Link href={repositories[2]?.repositoryUrl}>
-                  <a>
-                    <FaArrowRight color="#4953b8" size={20} />
-                  </a>
-                </Link>
-              </li>
-            </ul>
+            <RepositoriesList repositories={repositories} />
           </section>
         </main>
       </div>

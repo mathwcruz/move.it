@@ -1,0 +1,71 @@
+.repositoryItem {
+  position: relative;
+  width: 100%;
+  padding: 0.7rem;
+  list-style: none;
+  border-radius: 10px;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.06);
+}
+
+.repositoryItem + li {
+  margin-top: 0.8rem;
+}
+
+.repositoryItem h3 {
+  font-weight: 600;
+  font-size: 1.4rem;
+  text-align: left;
+  color: var(--title);
+}
+
+.repositoryItem p {
+  text-align: left;
+  font-size: 0.95rem;
+  width: 80%;
+  margin: 0.4rem 0;
+}
+
+.repositoryItem section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.repositoryItem section > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+}
+
+.repositoryItem section > div strong {
+  margin-left: 0.4rem;
+  color: var(--blue-dark);
+  font-size: 1.2rem;
+}
+
+.repositoryItem section > div > div {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background: var(--text-highlight);
+}
+
+.repositoryItem section small {
+  margin-right: 0.4rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--blue);
+}
+
+.repositoryItem a svg {
+  position: absolute;
+  top: 40%;
+  right: 25px;
+  transition: all 0.2s;
+}
+
+.repositoryItem a svg:hover {
+  filter: brightness(0.8);
+  transform: translateX(5px);
+}
