@@ -29,7 +29,6 @@ export function UserMoveItInformations({ user }: UserMoveItInformationsProps) {
           </p>
           <h3>
             <small>{user?.experience}</small> xp
-            {/* formtar xp para 134.540 */}
           </h3>
           <h4>
             Última atividade em{" "}
