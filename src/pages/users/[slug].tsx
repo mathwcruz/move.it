@@ -1,14 +1,12 @@
 import Head from "next/head";
 import Link from "next/link";
+import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/client";
-import { GetStaticPaths, GetStaticProps } from "next";
 import { useEffect } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 
 import axios from "axios";
-import { format, parseISO } from "date-fns";
-import { ptBR } from "date-fns/locale";
 
 import { RepositoriesList } from "../../components/UserRepositories/RepositoriesList";
 import { SideBarNav } from "../../components/SideBarNav";
@@ -16,6 +14,7 @@ import { UserGithubInformations } from "../../components/UserInformations/UserGi
 import { UserMoveItInformations } from "../../components/UserInformations/UserMoveItInformations";
 
 import { api } from "../../services/api";
+import { dateFormatter } from "../../utils/dateFormatter";
 
 import styles from "../../styles/pages/User.module.css";
 
@@ -129,12 +128,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     level: userDataChallenge?.level,
     completedChallenges: userDataChallenge?.completed_challenges,
     experience: userDataChallenge?.experience,
-    lastChallengeCompletedDate: format(
-      parseISO(userDataChallenge?.last_challenge_completed_date),
-      "dd MMM yyyy",
-      {
-        locale: ptBR,
-      }
+    lastChallengeCompletedDate: dateFormatter(
+      userDataChallenge?.last_challenge_completed_date,
+      "dd MMM yyyy"
     ),
     contactLink: userDataChallenge?.contact_link,
   };

@@ -42,7 +42,7 @@ export default function Leaderboard({ users }: LeaderboardProps) {
             <tbody>
               {users?.map((user, index) => (
                 <tr key={user?.id}>
-                  <td>{index + 1}</td>
+                  <td>{`${index + 1}º`}</td>
                   <td>{user?.name}</td>
                   <td>
                     <span>{user?.completedChallenges}</span> completados

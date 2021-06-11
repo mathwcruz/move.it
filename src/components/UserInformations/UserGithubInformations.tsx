@@ -1,5 +1,7 @@
 import { FaLinkedin } from "react-icons/fa";
 
+import styles from "../../styles/components/UserGithubInformations.module.css";
+
 interface User {
   name: string;
   bio?: string;
@@ -10,8 +12,6 @@ interface User {
 interface UserGithubInformationsProps {
   user: User;
 }
-
-import styles from "../../styles/components/UserGithubInformations.module.css";
 
 export function UserGithubInformations({ user }: UserGithubInformationsProps) {
   return (

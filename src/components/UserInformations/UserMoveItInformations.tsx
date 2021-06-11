@@ -1,3 +1,5 @@
+import styles from "../../styles/components/UserMoveItInformations.module.css";
+
 interface User {
   avatarUrl: string;
   name: string;
@@ -10,8 +12,6 @@ interface User {
 interface UserMoveItInformationsProps {
   user: User;
 }
-
-import styles from "../../styles/components/UserMoveItInformations.module.css";
 
 export function UserMoveItInformations({ user }: UserMoveItInformationsProps) {
   return (

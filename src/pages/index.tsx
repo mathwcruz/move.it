@@ -1,5 +1,5 @@
-import { GetServerSideProps } from "next";
 import Head from "next/head";
+import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/client";
 
 import { ChallengesProvider } from "../contexts/ChallengesContext";

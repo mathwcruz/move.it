@@ -1,5 +1,5 @@
-import { GetServerSideProps } from "next";
 import Head from "next/head";
+import { GetServerSideProps } from "next";
 import { signIn, getSession } from "next-auth/client";
 import { FaGithub, FaArrowRight } from "react-icons/fa";
 

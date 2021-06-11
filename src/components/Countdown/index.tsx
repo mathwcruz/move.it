@@ -1,5 +1,6 @@
-import { useCountdown } from "../../contexts/CountdownContext";
 import { FaCheckCircle, FaArrowRight } from "react-icons/fa";
+
+import { useCountdown } from "../../contexts/CountdownContext";
 
 import styles from "../../styles/components/Countdown.module.css";
 
