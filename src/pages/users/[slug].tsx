@@ -119,6 +119,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     `https://api.github.com/users/${slug}/repos`
   );
 
+  // ver como enviar um params para a requisição no github, para filtrar os dados da menira q eu queira
+
   const userFormatted = {
     // formatando os dados do user para o front
     name: userDataGithub?.name,

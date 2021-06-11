@@ -21,6 +21,7 @@
 }
 
 .userGithubInformations > section article p {
+  max-width: 90%;
   margin: 0.6rem auto;
   font-size: 1rem;
 }

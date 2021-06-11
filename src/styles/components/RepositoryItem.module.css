@@ -1,8 +1,8 @@
 .repositoryItem {
   position: relative;
+  list-style: none;
   width: 100%;
   padding: 0.7rem;
-  list-style: none;
   border-radius: 10px;
   box-shadow: 0 0 60px rgba(0, 0, 0, 0.06);
 }

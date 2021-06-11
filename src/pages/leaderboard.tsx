@@ -20,6 +20,8 @@ interface LeaderboardProps {
   users: User[];
 }
 
+// VER SE TEM COMO COLOCAR UM SPIN ENQUANTO OS DADOS NÃO CARREGAM
+
 export default function Leaderboard({ users }: LeaderboardProps) {
   return (
     <>
