@@ -27,6 +27,7 @@ export function UserGithubInformations({ user }: UserGithubInformationsProps) {
           {user?.followers && (
             <strong>
               <small>{user?.followers}</small> seguidores
+              {/* formatar seguiores para 13.450 */}
             </strong>
           )}
           <section>
