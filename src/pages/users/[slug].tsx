@@ -57,8 +57,6 @@ export default function User({
     }
   }, [loading, session]);
 
-  // console.log({ repositories });
-
   return (
     <>
       <Head>

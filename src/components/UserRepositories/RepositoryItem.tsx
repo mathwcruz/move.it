@@ -17,8 +17,6 @@ interface RepositoryItemProps {
 }
 
 export function RepositoryItem({ repository }: RepositoryItemProps) {
-  console.log({ repository });
-
   return (
     <li className={styles.repositoryItem}>
       <h3>{repository?.name}</h3>
