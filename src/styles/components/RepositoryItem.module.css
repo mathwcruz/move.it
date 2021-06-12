@@ -31,6 +31,10 @@
   justify-content: space-between;
 }
 
+.repositoryItem section.repositoryHasntADescription {
+  margin-top: 2.5rem;
+}
+
 .repositoryItem section > div {
   display: flex;
   align-items: center;

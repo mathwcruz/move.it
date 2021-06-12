@@ -57,6 +57,8 @@ export default function User({
     }
   }, [loading, session]);
 
+  // console.log({ repositories });
+
   return (
     <>
       <Head>
@@ -118,8 +120,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { data: userRepos } = await axios.get(
     `https://api.github.com/users/${slug}/repos`
   );
-
-  // ver como enviar um params para a requisição no github, para filtrar os dados da menira q eu queira
 
   const userFormatted = {
     // formatando os dados do user para o front

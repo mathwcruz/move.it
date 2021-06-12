@@ -17,11 +17,17 @@ interface RepositoryItemProps {
 }
 
 export function RepositoryItem({ repository }: RepositoryItemProps) {
+  console.log({ repository });
+
   return (
     <li className={styles.repositoryItem}>
       <h3>{repository?.name}</h3>
       <p>{repository?.description}</p>
-      <section>
+      <section
+        className={
+          !repository?.description && styles.repositoryHasntADescription
+        }
+      >
         <div>
           <strong>{repository?.totalStars}</strong>
           <FaStar color="#ffd666" size={18} />
