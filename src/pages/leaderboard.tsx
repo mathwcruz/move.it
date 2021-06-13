@@ -20,7 +20,7 @@ interface LeaderboardProps {
   users: User[];
 }
 
-// VER SE TEM COMO COLOCAR UM SPIN ENQUANTO OS DADOS NÃO CARREGAM
+// AJUSTAR LAYOUT PARA RESPONSIVO, COLOCAR overflow-x: scroll NA TABLE
 
 export default function Leaderboard({ users }: LeaderboardProps) {
   return (

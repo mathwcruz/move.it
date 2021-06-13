@@ -19,7 +19,7 @@ export function UserGithubInformations({ user }: UserGithubInformationsProps) {
       <section>
         {user?.bio && (
           <article>
-            <h3>Biografia de {user?.name}:</h3>
+            <h3>Biografia:</h3>
             <p>{user?.bio}</p>
           </article>
         )}

@@ -44,6 +44,24 @@
       "experience": 119693,
       "last_challenge_completed_date": "2021-06-02 06:12:09",
       "contact_link": "https://www.linkedin.com/in/filipedeschamps/"
+    },
+    {
+      "id": "danileao",
+      "name": "Daniele Leão",
+      "level": 37,
+      "completed_challenges": 137,
+      "experience": 156230,
+      "last_challenge_completed_date": "2021-06-09 21:09:38",
+      "contact_link": "https://www.linkedin.com/in/daniele-le%C3%A3o-evangelista-5540ab25/"
+    },
+    {
+      "id": "PanteraSan",
+      "name": "Gabriel Soares",
+      "level": 20,
+      "completed_challenges": 74,
+      "experience": 91183,
+      "last_challenge_completed_date": "2021-06-10 16:19:49",
+      "contact_link": "https://www.linkedin.com/in/gabriel-muller-soares-3473781a6/"
     }
   ]
 }
