@@ -5,8 +5,6 @@ import { FaGithub, FaArrowRight } from "react-icons/fa";
 
 import styles from "../styles/pages/Auth.module.css";
 
-// AJUSTAR LAYOUT PARA RESPONSIVO
-
 export default function Auth() {
   return (
     <>

@@ -20,8 +20,6 @@ interface LeaderboardProps {
   users: User[];
 }
 
-// AJUSTAR LAYOUT PARA RESPONSIVO, COLOCAR overflow-x: scroll NA TABLE
-
 export default function Leaderboard({ users }: LeaderboardProps) {
   return (
     <>
