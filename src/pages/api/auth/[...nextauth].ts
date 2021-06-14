@@ -6,7 +6,7 @@ export default NextAuth({
     Providers.GitHub({
       clientId: process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID,
       clientSecret: process.env.NEXT_PUBLIC_GITHUB_CLIENT_SECRET,
-      scope: "read-user",
+      scope: "read:user",
     }),
   ],
   callbacks: {
