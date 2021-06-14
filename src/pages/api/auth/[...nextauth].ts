@@ -10,9 +10,8 @@ export default NextAuth({
     }),
   ],
   callbacks: {
-    session: async (session, user) => {
-      session.userId = user.id;
-      return Promise.resolve(session);
+    async session(session, user) {
+      return session;
     },
   },
 });
