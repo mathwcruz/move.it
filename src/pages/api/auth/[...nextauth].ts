@@ -9,4 +9,10 @@ export default NextAuth({
       scope: "read-user",
     }),
   ],
+  callbacks: {
+    session: async (session, user) => {
+      session.userId = user.id;
+      return Promise.resolve(session);
+    },
+  },
 });
