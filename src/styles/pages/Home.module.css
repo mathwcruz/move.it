@@ -22,5 +22,6 @@
 @media (max-width: 850px) {
   .container section {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }

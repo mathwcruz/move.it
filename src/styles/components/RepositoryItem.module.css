@@ -16,6 +16,7 @@
   font-size: 1.4rem;
   text-align: left;
   color: var(--title);
+  max-width: 90%;
 }
 
 .repositoryItem p {

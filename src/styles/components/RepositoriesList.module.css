@@ -1,3 +1,9 @@
 .repositoriesList {
   padding: 0.8rem;
 }
+
+@media (max-width: 1200px) {
+  .repositoriesList {
+    margin-bottom: 0.8rem;
+  }
+}

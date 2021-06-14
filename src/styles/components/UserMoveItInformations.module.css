@@ -75,3 +75,18 @@
   font-weight: 700;
   color: var(--text);
 }
+
+@media (max-width: 750px) {
+  .userMoveitInformations section img {
+    width: 9rem;
+    height: 9rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .userMoveitInformations {
+    padding: 0;
+    max-width: 550px;
+    margin-top: 1rem;
+  }
+}

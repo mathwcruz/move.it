@@ -42,11 +42,17 @@
 }
 
 .userRepositories {
-  height: calc(100vh - 3rem);
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
+}
+
+@media (max-width: 1200px) {
+  .userContainer {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
 
 @media (min-width: 1400px) {

@@ -44,15 +44,12 @@ interface UserProps {
   userRepositories: UserRepositoryData[];
 }
 
-// AJUSTAR LAYOUT PARA RESPONSIVO, COLOCAR O CARD DE MOVE.IT INFOS. EM CIMA, DPS O GITHUB INFOS. E POR ÚLTIMO, OS REPOS
-
 export default function User({
   userData: user,
   userRepositories: repositories,
 }: UserProps) {
   const [session, loading] = useSession();
   const router = useRouter();
-  console.log({ user, repositories });
 
   useEffect(() => {
     if (!loading && !session) {
