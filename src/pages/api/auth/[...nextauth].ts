@@ -11,7 +11,7 @@ export default NextAuth({
   ],
   callbacks: {
     async session(session, user) {
-      return session;
+      return Promise.resolve(session);
     },
   },
 });
