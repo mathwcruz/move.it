@@ -1,15 +1,6 @@
 {
   "users": [
     {
-      "id": "mathwcruz",
-      "name": "Matheus da Cruz",
-      "level": 33,
-      "completed_challenges": 116,
-      "experience": 133650,
-      "last_challenge_completed_date": "2021-06-04 12:47:42",
-      "contact_link": "https://www.linkedin.com/in/matheus-cruz-frontend/"
-    },
-    {
       "id": "diego3g",
       "name": "Diego Fernandes",
       "level": 31,
