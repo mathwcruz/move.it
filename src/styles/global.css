@@ -63,6 +63,21 @@ strong {
   font-weight: 600;
 }
 
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(transparent, var(--blue-dark));
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(transparent, var(--blue));
+}
+
+/* 404 Not Found Page */
 .not-found {
   margin: 0 auto;
   width: 100%;
