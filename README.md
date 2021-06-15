@@ -37,6 +37,7 @@
 * Leaderboard of active users in the app
 * Page of users who are ranking containing user data on Github and move.it
 * Generation of static pages of users
+* PWA
 
 <h2 align="center"> 
 	Web application: https://move-it-nlw04-nine.vercel.app/
@@ -53,6 +54,7 @@
 - [x] Github OAuth Authentication
 - [x] Leaderboard of active users in the app
 - [x] Page of users who are ranking containing user data on Github and move.it
+- [x] PWA
 
 
 ## :rocket: Technologies used:
