@@ -2,7 +2,7 @@
   <img src="./public/logo-white.svg" alt="Logo do move.it" width="250">
 </h1>
 
-## **<h2 align="center">[Front end application](https://move-it-nlw04-nine.vercel.app/)  💻</h2>**
+## **<h2 align="center">[Front end application](https://move-it-nlw04-nine.vercel.app/auth)  💻</h2>**
 
 ## <p><h2 align="center">An app that reminds you to exercise every 25 minutes, based on the Pomodoro technique developed in #NLW04 delivered by [Rocketseat](https://app.rocketseat.com.br/dashboard)</h2> </p>
 
@@ -39,9 +39,6 @@
 * Generation of static pages of users
 * PWA
 
-<h2 align="center"> 
-	Web application: https://move-it-nlw04-nine.vercel.app/
-</h2>
 <br>
 
 ## :star: Features
