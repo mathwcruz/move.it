@@ -4,7 +4,7 @@
 
 ## **<h2 align="center">[Front end application](https://move-it-nlw04-nine.vercel.app/auth)  💻</h2>**
 
-## <p><h2 align="center">An app that reminds you to exercise every 25 minutes, based on the Pomodoro technique developed in #NLW04 delivered by [Rocketseat](https://app.rocketseat.com.br/dashboard)</h2> </p>
+## <p><h2 align="center">An app that reminds you to exercise every 25 minutes, based on the Pomodoro technique</h2> </p>
 
 <p align="center">
   <a href="#computer-demonstration-of-the-application">Demonstration of the application</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
