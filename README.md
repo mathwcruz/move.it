@@ -2,9 +2,9 @@
   <img src="./public/logo-white.svg" alt="Logo do move.it" width="250">
 </h1>
 
-## **<h2 align="center">[Front end application](https://move-it-nlw04-nine.vercel.app/auth)  💻</h2>**
+## <h2 align="center">[Front end application](https://move-it-nlw04-nine.vercel.app/auth)  💻</h2>
 
-## <p><h2 align="center">An app that reminds you to exercise every 25 minutes, based on the Pomodoro technique</h2> </p>
+<h3 align="center">An app that reminds you to exercise every 25 minutes, based on the Pomodoro technique</h3>
 
 <p align="center">
   <a href="#computer-demonstration-of-the-application">Demonstration of the application</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -92,12 +92,8 @@ To run the server, follow the instructions from your terminal:
  <br />
  <sub><b>Matheus da Cruz</b></sub></a> <a href="https://app.rocketseat.com.br/me/matheus-da-cruz-frontend" title="Rocketseat">  🚀</a>
 
-Desenvolvido por Matheus da Cruz 😊
-
 [![Linkedin Badge](https://img.shields.io/badge/-Matheus-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/matheus-cruz-frontend/)](https://www.linkedin.com/in/matheus-cruz-frontend/) 
 [![Gmail Badge](https://img.shields.io/badge/-matheuswachcruz@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:matheuswachcruz@gmail.com)](mailto:matheuswachcruz@gmail.com)
 <br>
 
-### <p> <h2 align="center">Another application developed by Matheus da Cruz 👨‍💻 </h2> </p>
-
-
+<h2 align="center">Another application developed by Matheus da Cruz 👨‍💻 </h2>
