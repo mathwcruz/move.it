@@ -19,12 +19,9 @@
   <img src="./.github/demonstration.gif" width="1400px"/>
 </p>
 
-<br>
-
 <h3 align="center"> 
 	Application status: Finalized ✔️
 </h3>
-<br>
 
 <h3 align="center">
    In addition to developing the initial application offered in the classes, I added more features to the application, such as:
@@ -39,8 +36,6 @@
 * Generation of static pages of users
 * PWA
 
-<br>
-
 ## :star: Features
 - [x] Accountant reporting that it's time to focus on work or studies 
 - [x] At the end of time, a challenge is randomly generated to complete
@@ -53,7 +48,6 @@
 - [x] Page of users who are ranking containing user data on Github and move.it
 - [x] PWA
 
-
 ## :rocket: Technologies used:
 <p align="center">
 <img src="https://xnrzwkuslogyvxcfkyyh.supabase.in/storage/v1/object/sign/projects-technologies-icons/html5_icon.svg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwcm9qZWN0cy10ZWNobm9sb2dpZXMtaWNvbnMvaHRtbDVfaWNvbi5zdmciLCJpYXQiOjE2NDYyNDYxOTQsImV4cCI6MTk2MTYwNjE5NH0.-BskkaDZ3OvYWL1qdFP-dY5FmyicAcs5n6P-ItqrrLc" alt="html5"  width="70" height="70"/>
@@ -63,19 +57,14 @@
 <img src="https://xnrzwkuslogyvxcfkyyh.supabase.in/storage/v1/object/sign/projects-technologies-icons/typescript_icon.svg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwcm9qZWN0cy10ZWNobm9sb2dpZXMtaWNvbnMvdHlwZXNjcmlwdF9pY29uLnN2ZyIsImlhdCI6MTY0NjI0NjcyNiwiZXhwIjoxOTYxNjA2NzI2fQ.W404dqHwT_A4lfmg7st0cyj1aJxJH3PZtCnux_iVv_s" alt="typescript" width="70" height="70"/>
 </p>
 
-<br>
-
 ## :information_source: Application installation
 - `git clone https://github.com/mathwcruz/move.it_nlw04.git` to clone the repository
-
-<br>
 
 # 🎲 Run web application
 To run the application on the web, follow the instructions from your terminal:
 - `cd move.it_nlw04` and `code .`
 - run `yarn` to install the dependencies of the project
 - After that, run `yarn dev` to run the application, will open at the address `localhost:3000`
-<br>
 
 # 🎲 Run server
 To run the server, follow the instructions from your terminal:
@@ -94,6 +83,3 @@ To run the server, follow the instructions from your terminal:
 
 [![Linkedin Badge](https://img.shields.io/badge/-Matheus-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/matheus-cruz-frontend/)](https://www.linkedin.com/in/matheus-cruz-frontend/) 
 [![Gmail Badge](https://img.shields.io/badge/-matheuswachcruz@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:matheuswachcruz@gmail.com)](mailto:matheuswachcruz@gmail.com)
-<br>
-
-<h2 align="center">Another application developed by Matheus da Cruz 👨‍💻 </h2>
